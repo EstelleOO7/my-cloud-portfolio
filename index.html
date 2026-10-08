@@ -7,7 +7,7 @@
       name="description"
       content="Esther Adedeji is an emerging cloud and technology professional building practical experience with AWS, cloud infrastructure, and automation."
     >
-    <meta name="theme-color" content="#192231">
+    <meta name="theme-color" content="#f5f2eb">
     <title>Esther Adedeji | Cloud &amp; Technology</title>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -21,8 +21,11 @@
         <a href="#projects">Projects</a>
         <a href="#journey">Journey</a>
         <a class="nav-contact" href="#contact">Contact <span aria-hidden="true">↗</span></a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">Dark</button>
       </nav>
     </header>
+
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
     <main>
       <section class="hero" id="home" aria-labelledby="intro-title">
@@ -141,7 +144,7 @@
           <p class="section-intro">Practical experiments, documented as I learn. Each build helps connect the concepts to the real world.</p>
         </div>
 
-        <article class="featured-project">
+        <article class="featured-project" data-project="01">
           <div class="project-topline"><span>FEATURED PROJECT</span><span>CLOUD PROJECT · AWS</span></div>
           <h3>AWS Static Website Hosting<br>with S3 &amp; CloudFront</h3>
           <p class="project-summary">I deployed a static website using Amazon S3 and Amazon CloudFront, creating a cloud-based hosting architecture that delivers the website over HTTPS.</p>
@@ -181,7 +184,7 @@
         </article>
 
         <div class="other-projects">
-          <article class="project-card">
+          <article class="project-card" data-project="02">
             <div class="project-card-heading"><span class="project-number">02</span><span class="project-type">CLOUD / DEVOPS PROJECT</span></div>
             <h3>Docker Bookstore Application</h3>
             <p>A containerized bookstore application developed as a practical project for understanding application deployment and container-based environments.</p>
@@ -192,7 +195,7 @@
             </ul>
             <p class="next-stage"><strong>Next stage:</strong> Deploying the project to AWS as part of my continued cloud learning.</p>
           </article>
-          <article class="project-card">
+          <article class="project-card" data-project="03">
             <div class="project-card-heading"><span class="project-number">03</span><span class="project-type">TECHNOLOGY · FINAL YEAR PROJECT</span></div>
             <h3>Housemates / Roommates Matcher</h3>
             <p>A platform designed to help people find and connect with potential housemates or roommates directly rather than relying on third-party agents.</p>
@@ -303,7 +306,51 @@
     <footer class="site-footer">
       <div class="footer-brand"><strong>Esther Adedeji</strong><span>Cloud Computing · AWS · Automation · Technology</span></div>
       <p>Building practical solutions.</p>
-      <span class="copyright">© 2026 Esther Adedeji. All rights reserved.</span>
+      <div class="footer-end"><button class="play-hint" type="button" data-open-game>Five taps on EA. to play offline</button><span class="copyright">© 2026 Esther Adedeji. All rights reserved.</span></div>
     </footer>
+
+    <nav class="mobile-nav" aria-label="Quick navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Work</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">Dark</button>
+    </nav>
+
+    <dialog class="project-dialog" aria-labelledby="project-dialog-title">
+      <div class="dialog-shell">
+        <button class="dialog-close" type="button" aria-label="Close project details">Back <span aria-hidden="true">×</span></button>
+        <p class="eyebrow dialog-kicker">Project / <span data-detail-number></span></p>
+        <h2 id="project-dialog-title" data-detail-title></h2>
+        <div class="dialog-content" data-detail-content></div>
+      </div>
+    </dialog>
+
+    <dialog class="offline-screen" aria-labelledby="offline-title">
+      <div class="offline-shell">
+        <div class="offline-heading">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Connection interrupted</p>
+          <button class="dialog-close offline-close" type="button" aria-label="Close offline game">Close <span aria-hidden="true">×</span></button>
+        </div>
+        <h2 id="offline-title">A small pause.<br><span class="accent">A quick run.</span></h2>
+        <p class="offline-copy">Jump the server stacks while the connection comes back.</p>
+        <div class="game-score" aria-live="polite">
+          <span>Distance <strong data-score>00000</strong></span>
+          <span>Best <strong data-high-score>00000</strong></span>
+        </div>
+        <canvas class="runner-canvas" width="960" height="240" aria-label="Cloud server runner game. Tap, click, or press Space to jump over server obstacles."></canvas>
+        <div class="game-actions">
+          <p class="game-instructions">Space / tap to jump</p>
+          <button class="button game-start" type="button">Start run</button>
+          <button class="button button-secondary game-restart" type="button" hidden>Run again</button>
+          <button class="offline-continue" type="button">Continue browsing</button>
+        </div>
+      </div>
+    </dialog>
+
+    <p class="online-toast" role="status" aria-live="polite">You're back online.</p>
+    <span class="cursor-mark" aria-hidden="true"><span></span></span>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
